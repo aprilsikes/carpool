@@ -1,0 +1,21 @@
+.nav {
+  font-size: 20px;
+}
+
+.jumbotron {
+  background-image: url('../images/carpooltocrop2.jpg');
+  background-size: cover;
+  height: 395px;
+}
+
+#left {
+  margin-right: 20px;
+}
+
+.pool {
+  font-size: 35px;
+}
+
+.text-center {
+  color: #337AB7;
+}
