@@ -6,5 +6,9 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/splash.html',
         controller: 'MainController'
       })
+      .when('/orgs', {
+        templateUrl: 'partials/orgs.html',
+        controller: 'MainController'
+      })
     $locationProvider.html5Mode(true);
 });
