@@ -1,6 +1,16 @@
-<div ng-repeat="org in orgs">
-  <ul>
-    <li>{{org.image_url}}</li>
-    <li>{{org.org_name}}</li>
-  </ul>
-</div>
+<!--Add panel with table later, add instruction and description of organizations, explore ui bootstrap  -->
+
+<table class="table table-hover">
+  <tbody ng-repeat='org in orgs'>
+    <tr>
+      <td>
+        <img src='{{org.image_url}}'>
+      </td>
+      <td>
+        <div class="orgInfo">
+          <a href='/orgs/{{org.id}}'><h3>{{org.org_name}}</h3></a>
+          <h4>{{org.city}}, {{org.state}}</h4>
+        </div>
+      </td>
+    </tr>
+</table>

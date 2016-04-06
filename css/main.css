@@ -19,3 +19,17 @@
 .text-center {
   color: #337AB7;
 }
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.orgInfo {
+  color: #337AB7;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
