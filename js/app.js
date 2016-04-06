@@ -10,9 +10,9 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/orgs.html',
         controller: 'MainController'
       })
-      // .when('/orgs/:id', {
-      //   templateUrl: 'partials/orgShow.html',
-      //   controller: 'MainController'
-      // })
-    $locationProvider.html5Mode(true);
+      .when('/orgs/:id', {
+        templateUrl: 'partials/orgShow.html',
+        controller: 'MainController'
+      })
+    // $locationProvider.html5Mode(true);
 });

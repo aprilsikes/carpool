@@ -1,4 +1,4 @@
-<!--Add panel with table later, add instruction and description of organizations, explore ui bootstrap  -->
+<!--Add panel with table later, add instruction and description of organizations, explore ui bootstrap, add search  -->
 
 <table class="table table-hover">
   <tbody ng-repeat='org in orgs'>
@@ -8,7 +8,7 @@
       </td>
       <td>
         <div class="orgInfo">
-          <a href='/orgs/{{org.id}}'><h3>{{org.org_name}}</h3></a>
+          <a href='/#/orgs/{{org.id}}'><h3>{{org.org_name}}</h3></a>
           <h4>{{org.city}}, {{org.state}}</h4>
         </div>
       </td>
