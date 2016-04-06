@@ -3,8 +3,11 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', function ($s
   $scope.orgs;
 
   OrgsService.all().then(function (orgs) {
+    console.log('here it is')
     console.log(orgs);
-    $scope.orgs = orgs.data;
+    console.log('*******');
+    console.log(orgs.data);
+    $scope.orgs = orgs.data
   })
 
 }])
