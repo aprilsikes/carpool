@@ -6,11 +6,11 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/splash.html',
         controller: 'MainController'
       })
-      .when('/orgs', {
+      .when('/api/orgs', {
         templateUrl: 'partials/orgs.html',
         controller: 'MainController'
       })
-      .when('/orgs/:id', {
+      .when('/api/orgs/:id', {
         templateUrl: 'partials/orgShow.html',
         controller: 'MainController'
       })
