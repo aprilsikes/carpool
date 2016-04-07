@@ -12,11 +12,14 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParam
     $scope.orgs = orgs.data;
   })
 
-  the_id = $routeParams.id;
-  OrgsService.oneOrg(the_id).then(function (payload) {
+  // the_id = $routeParams.id;
+  OrgsService.oneOrg($routeParams.id).then(function (payload) {
     console.log(payload.data);
+    console.log('**SINGLE ORG: ' + payload.data['singleOrg']);
     $scope.singleOrg = payload.data['singleOrg'];
-    switch (payload.data['singleOrg'].category) {
+    console.log($scope.singleOrg);
+    $scope.groups = payload.data['groups'];
+    switch ($scope.singleOrg['category']) {
       case 'School':
         $scope.groupValue = "Groups";
         break;
@@ -32,7 +35,6 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParam
       default:
         $scope.groupValue = "Groups";
     }
-    $scope.groups = payload.data['groups'];
   })
 
 }])
