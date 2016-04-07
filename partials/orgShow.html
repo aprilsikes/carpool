@@ -11,3 +11,22 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="">
+  <table class="table table-hover">
+    <thead>
+      <th>
+        {{groupValue}}
+      </th>
+    </thead>
+    <tbody ng-repeat='group in groups'>
+      <tr>
+        <td>
+          <a href='/#/orgs/{{group.orgs_id}}/groups/{{group.id}}'>{{group.group_name}}</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
