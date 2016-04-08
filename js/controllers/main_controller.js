@@ -22,19 +22,38 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParam
     switch ($scope.singleOrg['category']) {
       case 'School':
         $scope.groupValue = "Groups";
+        $scope.groupValueB = "Group";
         break;
       case 'Sports':
         $scope.groupValue = "Teams";
+        $scope.groupValueB = "Team";
         break;
       case 'Scouts':
         $scope.groupValue = "Troops";
+        $scope.groupValueB = "Troop";
         break;
       case 'Arts':
         $scope.groupValue = "Classes";
+        $scope.groupValueB = "Class";
         break;
       default:
         $scope.groupValue = "Groups";
+        $scope.groupValueB = "Group";
     }
   })
+
+  $scope.toggleForm = function () {
+    $scope.showForm = !$scope.showForm;
+  }
+
+  // $scope.group = {};
+  $scope.addGroup = function (org, group_name, orgs_id) {
+    var newGroup = {};
+    newGroup.group_name = group_name;
+    newGroup.orgs_id = $routeParams.id;
+    OrgsService.addGroup(newGroup).then(function (group) {
+      console.log("We have received the ", group);
+    })
+  }
 
 }])

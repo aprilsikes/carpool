@@ -1,5 +1,19 @@
+body {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
 .nav {
   font-size: 20px;
+  background-color: #EE6457;
+  text-decoration: none;
+}
+
+.splash {
+  color: white;
+}
+
+li {
+  color: white;
 }
 
 .jumbotron {
@@ -8,7 +22,7 @@
   height: 395px;
 }
 
-#left {
+.left {
   margin-right: 20px;
 }
 
@@ -17,7 +31,7 @@
 }
 
 .text-center {
-  color: #337AB7;
+  color: #17A6B6;
 }
 
 img {
@@ -26,10 +40,19 @@ img {
 }
 
 .orgInfo {
-  color: #337AB7;
+  color: #17A6B6;
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
+  color: #17A6B6;
+}
+
+.formG {
+  margin-right: 20px;
+}
+
+.l {
+  margin-left: 10px;
 }
