@@ -9,8 +9,7 @@ app.factory('OrgsService', ['$http', function ($http) {
       // return $http.get('https://carpool-api.herokuapp.com/api/orgs/'+id, {method: "jsonp"})
     },
     addGroup: function (newGroup, id) {
-      return $http.post('http://localhost:3000/api/orgs/'+id, newGroup);
+      return $http.post('http://localhost:3000/api/orgs/'+id+'/groups', newGroup);
     },
-
   }
 }])

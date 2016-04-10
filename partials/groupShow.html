@@ -1,0 +1,75 @@
+<br>
+<br>
+<table>
+  <tbody>
+    <tr>
+      <td class="g">
+        <h1>{{group.group_name}}</h1>
+      </td>
+      <td class="g">
+        <form name='formGroup' ng-submit='editGroup()'>
+          <input class="btn btn-default" type="submit" value="Edit Group">
+        </form>
+      </td>
+      <td class="g">
+        <form name='formGroup' ng-submit='deleteGroup()'>
+          <input class="btn btn-default" type="submit" value="Delete Group">
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <th><h3>Event Name</h3></th>
+    <th><h3>Date</h3></th>
+    <th><h3>Time</h3></th>
+    <th><h3>Location</h3></th>
+  </thead>
+  <tbody ng-repeat='event in events'>
+    <tr>
+      <td>
+        <a href='/#/api/orgs/{{org.id}}/groups/{{event.groups_id}}/events/{{event.id}}'>{{event.event_name}}</a>
+      </td>
+      <td>
+        {{event.date}}
+      </td>
+      <td>
+        {{event.time}}
+      </td>
+      <td>
+        {{event.location}}
+      </td>
+      <td>
+        <form name='formGroup' ng-submit='editEvent()'>
+          <input class="btn btn-default" type="submit" value="Edit Event">
+        </form>
+      </td>
+      <td>
+        <form name='formGroup' ng-submit='deleteEvent()'>
+          <input class="btn btn-default" type="submit" value="Delete Event">
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div ng-show='showForm'>
+  <form name='formGroup' ng-submit='addEvent(event_name, date, time, location, groups_id)'>
+    <label class="formE l" for="eventName">Event Name</label>
+      <input class="formG" type="text" id='eventName' ng-model='event.event_name' placeholder="Enter Event Name" required>
+    <label class="formE l" for="date">Event Date</label>
+      <input class="formG" type="text" id='date' ng-model='event.date' placeholder="Enter Event Date" required>
+    <label class="formE l" for="time">Event Time</label>
+      <input class="formG" type="text" id='time' ng-model='event.time' placeholder="Enter Event Time" required>
+    <label class="formE l" for="eventLoc">Event Location</label>
+      <input class="formG" type="text" id='eventLoc' ng-model='event.location' placeholder="Enter Event Location" required>
+    <input type="hidden" value="{{group.id}}" ng-model="event.groups_id">
+    <input class='sub' type="submit" value="Submit Event">
+  </form>
+</div>
+
+<p class='text-center'><button class="btn btn-default" ng-click='toggleForm()'>Add an Event</button>

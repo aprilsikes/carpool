@@ -14,5 +14,20 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/orgShow.html',
         controller: 'MainController'
       })
-    // $locationProvider.html5Mode(true);
+      .when('/api/orgs/:id/groups', {
+        templateUrl: 'partials/orgShow.html',
+        controller: 'MainController'
+      })
+      .when('/api/orgs/:orgs_id/groups/:id', {
+        templateUrl: 'partials/groupShow.html',
+        controller: 'GroupsController'
+      })
+      .when('/api/orgs/:orgs_id/groups/:id/delete', {
+        templateUrl: 'partials/orgShow.html',
+        controller: 'GroupsController'
+      })
+      .when('/api/orgs/:orgs_id/groups/:id/events', {
+        templateUrl: 'partials/groupShow.html',
+        controller: 'GroupsController'
+      })
 });
