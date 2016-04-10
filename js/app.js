@@ -30,4 +30,12 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/groupShow.html',
         controller: 'GroupsController'
       })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:id/delete', {
+        templateUrl: 'partials/groupShow.html',
+        controller: 'EventsController'
+      })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:id', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+      })
 });

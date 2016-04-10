@@ -3,6 +3,7 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParam
   $scope.orgs;
   $scope.groups;
   $scope.singleOrg;
+  $scope.group;
 
   OrgsService.all().then(function (orgs) {
     $scope.orgs = orgs.data;

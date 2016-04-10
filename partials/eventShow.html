@@ -1,0 +1,38 @@
+<br>
+<br>
+<table>
+  <tbody>
+    <tr>
+      <td class="g">
+        <h1>{{event.event_name}}</h1>
+      </td>
+      <td class="g">
+        <form name='formGroup' ng-submit='editEvent()'>
+          <input class="btn btn-default" type="submit" value="Edit Event">
+        </form>
+      </td>
+      <td class="g">
+        <form name='formGroup' ng-submit='deleteEvent()'>
+          <input class="btn btn-default" type="submit" value="Delete Event">
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+
+<table class="table">
+  <thead>
+    <th><h3>Date</h3></th>
+    <th><h3>Time</h3></th>
+    <th><h3>Location</h3></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{event.date}}</td>
+      <td>{{event.time}}</td>
+      <td>{{event.location}}</td>
+    </tr>
+  </tbody>
+</table>
