@@ -1,0 +1,51 @@
+<div class="well well-lg">
+  <div class="col-sm-6 col-md-4">
+    <!-- <img src="{{user.image_url}}" alt="..."> -->
+    <div class="caption">
+      <h1>{{user.username}}</h1>
+      <p><h3>Email:</h3></p>
+      <p>{{user.email}}</p>
+      <p><h3>Contact Number:</h3></p>
+      <p>{{user.phone_number}}</p>
+      <!-- <p>{{singleOrg.city}}, {{singleOrg.state}} {{singleOrg.zip}}</p> -->
+    </div>
+  </div>
+</div>
+<br>
+
+
+<div>
+  <table class="table table-hover">
+    <thead>
+      <th>
+        <h3>Child Name</h3>
+      </th>
+      <th>
+        <h3>School Name</h3>
+      </th>
+    </thead>
+    <tbody ng-repeat='kid in kids'>
+      <tr>
+        <td>
+          {{kid.kid_name}}
+        </td>
+        <td>
+          {{kid.school}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div ng-show='showForm'>
+    <form name='formGroup' ng-submit='addKid(kid_name, school, users_id)'>
+      <label class="formG l" for="kidName">Name</label>
+        <input class="formG" type="text" id='kidName' ng-model='kid.kid_name' placeholder="Enter Name" required>
+      <label class="formG l" for="school">School</label>
+        <input class="formG" type="text" id='school' ng-model='kid.school' placeholder="Enter School" required>
+      <input type="hidden" value="{{user.id}}" ng-model="kid.users_id">
+      <input class='sub' type="submit" value="Add Child">
+    </form>
+  </div>
+
+  <p class='text-center'><button class="btn btn-default" ng-click='toggleForm()'>Add a Child</button>
+</div>
