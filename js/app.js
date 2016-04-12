@@ -77,6 +77,16 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: 'UsersController'
         // access: { requiredLogin: true }
       })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:id/rides', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+        // access: { requiredLogin: true }
+      })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:id/seats', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+        // access: { requiredLogin: true }
+      })
       // otherwise({
       //   redirectTo: '/'
       // })
