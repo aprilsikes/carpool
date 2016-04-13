@@ -28,10 +28,20 @@ li {
 
 .pool {
   font-size: 35px;
+  margin-top: 0px;
 }
 
 .text-center {
   color: #17A6B6;
+}
+
+.car {
+  margin-bottom: 0px;
+}
+
+.white {
+  max-width: 95px;
+  max-height: 95px;
 }
 
 img {
