@@ -1,13 +1,12 @@
 <div class="well well-lg">
   <div class="col-sm-6 col-md-4">
-    <!-- <img src="{{user.image_url}}" alt="..."> -->
     <div class="caption">
+      <img src="{{user.avatar_image_url}}" alt="">
       <h1>{{user.username}}</h1>
       <p><h3>Email:</h3></p>
       <p>{{user.email}}</p>
       <p><h3>Contact Number:</h3></p>
       <p>{{user.phone_number}}</p>
-      <!-- <p>{{singleOrg.city}}, {{singleOrg.state}} {{singleOrg.zip}}</p> -->
     </div>
   </div>
 </div>
@@ -32,9 +31,25 @@
         <td>
           {{kid.school}}
         </td>
+        <td>
+          <p class='text-center'><button class="btn btn-default" ng-click='toggleForm1()'>Edit Child</button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <div ng-show='showForm1'>
+    <form name='formGroup' ng-submit='editKid(kid)'>
+      <label class="formG l" for="kidName">Name</label>
+      <input class="formG" type="text" id='kidName' ng-model='kid.kid_name' required>
+      <label class="formG l" for="school">School</label>
+      <input class="formG" type="text" id='school' ng-model='kid.school' required>
+      <input type="hidden" value="{{user.id}}" ng-model="kid.users_id">
+      <input class='sub' type="submit" value="Edit Child">
+    </form>
+  </div>
+  <br>
+  <br>
 
   <div ng-show='showForm'>
     <form name='formGroup' ng-submit='addKid(kid_name, school, users_id)'>
@@ -48,4 +63,6 @@
   </div>
 
   <p class='text-center'><button class="btn btn-default" ng-click='toggleForm()'>Add a Child</button>
+
+
 </div>

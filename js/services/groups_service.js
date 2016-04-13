@@ -12,5 +12,9 @@ app.factory('GroupsService', ['$http', function ($http) {
       // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+id+'/events', newEvent);
       return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+id+'/events', newEvent);
     },
+    editGroup: function (group, orgs_id, id) {
+      // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+id+'/update', group);
+      return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+id+'/update', group);
+    }
   }
 }])

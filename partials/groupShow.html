@@ -7,9 +7,7 @@
         <h1>{{group.group_name}}</h1>
       </td>
       <td class="g">
-        <form name='formGroup' ng-submit='editGroup()'>
-          <input class="btn btn-default" type="submit" value="Edit Group">
-        </form>
+        <button class="btn btn-default" ng-click='toggleForm2()'>Edit Group</button>
       </td>
       <td class="g">
         <form name='formGroup' ng-submit='deleteGroup()'>
@@ -21,6 +19,15 @@
 </table>
 <br>
 <br>
+
+<div ng-show='showForm2'>
+  <form name='formGroup' ng-submit='editGroup(group)'>
+    <label class="formG l" for="groupName">{{groupValueB}} Name</label>
+      <input class="formG" type="text" name='groupName' ng-model='group.group_name' required>
+    <input type="hidden" value="{{singleOrg.id}}" ng-model="group.orgs_id">
+    <input class='sub' type="submit" value="Edit Group">
+  </form>
+</div>
 
 <table class="table table-hover">
   <thead>

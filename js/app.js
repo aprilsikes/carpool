@@ -87,6 +87,31 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         controller: 'EventsController'
         // access: { requiredLogin: true }
       })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:id/update', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+        // access: { requiredLogin: true }
+      })
+      .when('/api/orgs/:orgs_id/groups/:id/update', {
+        templateUrl: 'partials/groupShow.html',
+        controller: 'GroupsController'
+        // access: { requiredLogin: true }
+      })
+      .when('/api/users/:users_id/kids/:id/update', {
+        templateUrl: 'partials/profile.html',
+        controller: 'UsersController'
+        // access: { requiredLogin: true }
+      })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:events_id/rides/:id/update', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+        // access: { requiredLogin: true }
+      })
+      .when('/api/orgs/:orgs_id/groups/:groups_id/events/:events_id/seats/:id/update', {
+        templateUrl: 'partials/eventShow.html',
+        controller: 'EventsController'
+        // access: { requiredLogin: true }
+      })
       // otherwise({
       //   redirectTo: '/'
       // })

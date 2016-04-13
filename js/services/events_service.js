@@ -16,5 +16,17 @@ app.factory('EventsService', ['$http', function ($http) {
       // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+id+'/seats', newSeat);
       return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+id+'/seats', newSeat);
     },
+    editEvent: function (event, orgs_id, groups_id, id) {
+      // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+id+'/update', event);
+      return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+id+'/update', event);
+    },
+    editRide: function (ride, orgs_id, groups_id, events_id, id) {
+      // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+events_id+'/rides/'+id+'/update', ride);
+      return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+events_id+'/rides/'+id+'/update', ride);
+    },
+    editSeat: function (seat, orgs_id, groups_id, events_id, id) {
+      // return $http.post('http://localhost:3000/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+events_id+'/seats/'+id+'/update', seat);
+      return $http.post('https://carpool-api.herokuapp.com/api/orgs/'+orgs_id+'/groups/'+groups_id+'/events/'+events_id+'/seats/'+id+'/update', seat);
+    }
   }
 }])

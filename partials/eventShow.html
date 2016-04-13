@@ -7,9 +7,7 @@
         <h1>{{event.event_name}}</h1>
       </td>
       <td class="g">
-        <form name='formGroup' ng-submit='editEvent()'>
-          <input class="btn btn-default" type="submit" value="Edit Event">
-        </form>
+        <button class="btn btn-default" ng-click='toggleForm2()'>Edit Event</button>
       </td>
       <td class="g">
         <form name='formGroup' ng-submit='deleteEvent()'>
@@ -21,6 +19,21 @@
 </table>
 <br>
 <br>
+
+<div ng-show='showForm2'>
+  <form name='formGroup' ng-submit='editEvent(event)'>
+    <label class="formE l" for="eventName">Event Name</label>
+      <input class="formG" type="text" id='eventName' ng-model='event.event_name' required>
+    <label class="formE l" for="date">Event Date</label>
+      <input class="formG" type="text" id='date' ng-model='event.date' required>
+    <label class="formE l" for="time">Event Time</label>
+      <input class="formG" type="text" id='time' ng-model='event.time' required>
+    <label class="formE l" for="eventLoc">Event Location</label>
+      <input class="formG" type="text" id='eventLoc' ng-model='event.location' required>
+    <input type="hidden" value="{{group.id}}" ng-model="event.groups_id">
+    <input class='sub' type="submit" value="Edit Event">
+  </form>
+</div>
 
 <table class="table">
   <thead>
@@ -45,12 +58,18 @@
     <thead>
       <th><h3>Child Name</h3></th>
       <th><h3>School</h3></th>
+      <th>
+        <h3>Offer Ride?</h3>
+      </th>
     </thead>
-    <tbody ng-repeat='ride in rides'>
+    <tbody ng-repeat='ride in rides' ng-class="{'checked': ride.ride_offered}">
       <tr>
         <td>{{ride.kid_name}}</td>
         <td>{{ride.school}}</td>
-        <td><button class="btn btn-default" ng-click=''>Offer Ride</button></td>
+        <td>
+          <input ng-change='offerRide(ride)' ng-model='ride.ride_offered' name='rideOffered' type='checkbox'>
+        </td>
+        <!-- <td><button class="btn btn-default" ng-click='toggle()'>Offer Ride</button></td> -->
       </tr>
     </tbody>
   </table>
@@ -76,12 +95,18 @@
     <thead>
       <th><h3>Username</h3></th>
       <th><h3>Number of Seats</h3></th>
+      <th>
+        <h3>Accept Ride?</h3>
+      </th>
     </thead>
-    <tbody ng-repeat='seat in seats'>
+    <tbody ng-repeat='seat in seats' ng-class="{'checked': seat.seat_accepted}">
       <tr>
         <td>{{seat.username}}</td>
         <td>{{seat.number_of_seats}}</td>
-        <td><button class="btn btn-default" ng-click=''>Accept Ride</button></td>
+        <td>
+          <input ng-change='acceptSeat(seat)' ng-model='seat.seat_accepted' name='seatAccepted' type='checkbox'>
+        </td>
+        <!-- <td><button class="btn btn-default" ng-click=''>Accept Ride</button></td> -->
       </tr>
     </tbody>
   </table>

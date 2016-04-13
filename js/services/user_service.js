@@ -19,6 +19,10 @@ app.factory('UserService', ['$http', function ($http) {
       // return $http.post('http://localhost:3000/api/users/'+id+'/kids', newKid);
       return $http.post('https://carpool-api.herokuapp.com/api/users/'+id+'/kids', newKid);
     },
+    editKid: function (kid, users_id, id) {
+      // return $http.post('http://localhost:3000/api/users/'+users_id+'/kids/'+id+'/update', kid);
+      return $http.post('https://carpool-api.herokuapp.com/api/users/'+users_id+'/kids/'+id+'/update', kid);
+    }
 
   }
 }])
