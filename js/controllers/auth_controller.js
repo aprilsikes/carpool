@@ -24,6 +24,7 @@ app.controller('AuthController', ['$scope', '$location', '$window', 'UserService
   }
 
   $scope.signUp = function (user) {
+    
     AuthService.signUp(user).then(function (user) {
 
     })
