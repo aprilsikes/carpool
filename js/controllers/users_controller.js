@@ -1,4 +1,4 @@
-app.controller('UsersController', ['$scope', '$http', 'UserService', '$routeParams', function ($scope, $http, UserService, $routeParams) {
+app.controller('UsersController', ['$scope', '$http', '$location', '$route', 'UserService', '$routeParams', function ($scope, $http, $location, $route, UserService, $routeParams) {
 
   $scope.users;
   $scope.user;
@@ -25,12 +25,14 @@ app.controller('UsersController', ['$scope', '$http', 'UserService', '$routePara
   $scope.addKid = function (kid_name, school, users_id) {
     var newKid = $scope.kid;
     UserService.addKid(newKid, $routeParams.id).then(function (kid) {
+      $route.reload();
       console.log("We have received the ", kid);
     })
   }
 
   $scope.editKid = function (kid) {
     UserService.editKid(kid, $routeParams.users_id, $routeParams.id).then(function (kid) {
+      $route.reload();
       console.log("We have updated the ", kid);
     })
   }

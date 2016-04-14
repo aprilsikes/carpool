@@ -17,8 +17,6 @@
     </tr>
   </tbody>
 </table>
-<br>
-<br>
 
 <div ng-show='showForm2'>
   <form name='formGroup' ng-submit='editEvent(event)'>
@@ -49,8 +47,6 @@
     </tr>
   </tbody>
 </table>
-<br>
-<br>
 
 <div class="well well-lg">
   <h1>Rides Needed</h1>
@@ -73,21 +69,25 @@
       </tr>
     </tbody>
   </table>
-
-  <div ng-show='showForm'>
-    <form name='formGroup' ng-submit='needRide(kid_name, school, events_id)'>
-      <label class="formG l" for="kidName">Child Name</label>
-        <input class="formG" type="text" id='kidName' ng-model='ride.kid_name' placeholder="Enter Name" required>
-      <label class="formG l" for="school">School</label>
-        <input class="formG" type="text" id='school' ng-model='ride.school' placeholder="Enter School" required>
-      <input type="hidden" value="{{event.id}}" ng-model="ride.events_id">
-      <input class='sub' type="submit" value="Submit">
-    </form>
-  </div>
 </div>
 
-  <p class='text-center'><button class="btn btn-default" ng-click='toggleForm()'>Request a Ride</button>
-  </div>
+
+<br>
+<p class='pull-right'><button class="rideR btn btn-default" ng-click='toggleForm()'>Request a Ride</button></p>
+<br>
+<br>
+
+<div ng-show='showForm'>
+  <form name='formGroup' ng-submit='needRide(kid_name, school, events_id)'>
+    <label class="formG l" for="kidName">Child Name</label>
+      <input class="formG" type="text" id='kidName' ng-model='ride.kid_name' placeholder="Enter Name" required>
+    <label class="formG l" for="school">School</label>
+      <input class="formG" type="text" id='school' ng-model='ride.school' placeholder="Enter School" required>
+    <input type="hidden" value="{{event.id}}" ng-model="ride.events_id">
+    <input class='sub' type="submit" value="Submit">
+  </form>
+</div>
+
 
 <div class="well well-lg">
   <h1>Seats Available</h1>
@@ -110,18 +110,22 @@
       </tr>
     </tbody>
   </table>
-
-  <div ng-show='showForm1'>
-    <form name='formGroup' ng-submit='haveSeats(username, number_of_seats, events_id)'>
-      <label class="formG l" for="username">Name</label>
-        <input class="formG" type="text" id='username' ng-model='seat.username' placeholder="Enter Name" required>
-      <label class="formG l" for="school">Number of Seats</label>
-        <input class="formG" type="text" id='school' ng-model='seat.number_of_seats' placeholder="Enter Number of Seats" required>
-      <input type="hidden" value="{{event.id}}" ng-model="seat.events_id">
-      <input class='sub' type="submit" value="Submit">
-    </form>
-  </div>
 </div>
 
-  <p class='text-center'><button class="btn btn-default" ng-click='toggleForm1()'>Post Seats</button>
-  </div>
+
+<br>
+<p class='pull-right'><button class="seatP btn btn-default" ng-click='toggleForm1()'>Post Seats</button></p>
+<br>
+<br>
+
+
+<div ng-show='showForm1'>
+  <form name='formGroup' ng-submit='haveSeats(username, number_of_seats, events_id)'>
+    <label class="formG l" for="username">Name</label>
+      <input class="formG" type="text" id='username' ng-model='seat.username' placeholder="Enter Name" required>
+    <label class="formG l" for="school">Number of Seats</label>
+      <input class="formG" type="text" id='school' ng-model='seat.number_of_seats' placeholder="Enter Number of Seats" required>
+    <input type="hidden" value="{{event.id}}" ng-model="seat.events_id">
+    <input class='sub' type="submit" value="Submit">
+  </form>
+</div>

@@ -1,4 +1,4 @@
-app.controller('EventsController', ['$scope', '$http', 'EventsService', '$routeParams', function ($scope, $http, EventsService, $routeParams) {
+app.controller('EventsController', ['$scope', '$http', '$route', 'EventsService', '$routeParams', function ($scope, $http, $route, EventsService, $routeParams) {
 
   $scope.event;
   $scope.ride;
@@ -12,6 +12,7 @@ app.controller('EventsController', ['$scope', '$http', 'EventsService', '$routeP
 
   $scope.editEvent = function (event) {
     EventsService.editEvent(event, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.id).then(function (event) {
+      $route.reload();
       console.log("We have updated the ", event);
     })
   }
@@ -19,6 +20,7 @@ app.controller('EventsController', ['$scope', '$http', 'EventsService', '$routeP
   $scope.deleteEvent = function () {
     var eventDel = $scope.event;
     EventsService.deleteEvent(eventDel, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.id).then(function (event) {
+      $route.reload();
       console.log("We have deleted the ", event);
     })
   }
@@ -38,18 +40,21 @@ app.controller('EventsController', ['$scope', '$http', 'EventsService', '$routeP
   $scope.needRide = function (kid_name, school, events_id) {
     var newRide = $scope.ride;
     EventsService.needRide(newRide, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.id).then(function (ride) {
+      $route.reload();
       console.log("We have received the ", ride);
     })
   }
 
-  $scope.offerRide = function(ride) {
-    EventsService.editRide($routeParams.orgs_id, $routeParams.groups_id, $routeParams.events_id, $routeParams.id, ride).then(function(ride) {
+  $scope.offerRide = function(ride, orgs_id, groups_id, events_id, id) {
+    EventsService.editRide(ride, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.events_id, $routeParams.id).then(function(ride) {
+      $route.reload();
       console.log("We have updated the ", ride);
     })
   }
 
-  $scope.acceptSeat = function(seat) {
-    EventsService.editSeat($routeParams.orgs_id, $routeParams.groups_id, $routeParams.events_id, $routeParams.id, seat).then(function(seat) {
+  $scope.acceptSeat = function(seat, orgs_id, groups_id, events_id, id) {
+    EventsService.editSeat(seat, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.events_id, $routeParams.id).then(function(seat) {
+      $route.reload();
       console.log("We have updated the ", seat);
     })
   }
@@ -57,6 +62,7 @@ app.controller('EventsController', ['$scope', '$http', 'EventsService', '$routeP
   $scope.haveSeats = function (username, number_of_seats, events_id) {
     var newSeat = $scope.seat;
     EventsService.haveSeats(newSeat, $routeParams.orgs_id, $routeParams.groups_id, $routeParams.id).then(function (seat) {
+      $route.reload();
       console.log("We have received the ", seat);
     })
   }

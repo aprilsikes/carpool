@@ -1,4 +1,4 @@
-app.controller('GroupsController', ['$scope', '$http', 'GroupsService', '$routeParams', function ($scope, $http, GroupsService, $routeParams) {
+app.controller('GroupsController', ['$scope', '$http', '$route', 'GroupsService', '$routeParams', function ($scope, $http, $route, GroupsService, $routeParams) {
 
   $scope.group;
   $scope.event;
@@ -11,6 +11,7 @@ app.controller('GroupsController', ['$scope', '$http', 'GroupsService', '$routeP
 
   $scope.editGroup = function (group) {
     GroupsService.editGroup(group, $routeParams.orgs_id, $routeParams.id).then(function (group) {
+      $route.reload();
       console.log("We have updated the ", group);
     })
   }
@@ -18,6 +19,7 @@ app.controller('GroupsController', ['$scope', '$http', 'GroupsService', '$routeP
   $scope.deleteGroup = function () {
     var groupDel = $scope.group;
     GroupsService.deleteGroup(groupDel, $routeParams.orgs_id, $routeParams.id).then(function (group) {
+      $route.reload();
       console.log("We have deleted the ", group);
     })
   }
@@ -33,6 +35,7 @@ app.controller('GroupsController', ['$scope', '$http', 'GroupsService', '$routeP
   $scope.addEvent = function (event_name, date, time, location, groups_id) {
     var newEvent = $scope.event;
     GroupsService.addEvent(newEvent, $routeParams.orgs_id, $routeParams.id).then(function (event) {
+      $route.reload();
       console.log("We have received the ", event);
     })
   }

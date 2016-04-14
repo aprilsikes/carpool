@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParams', function ($scope, $http, OrgsService, $routeParams) {
+app.controller('MainController', ['$scope', '$http', '$route', 'OrgsService', '$routeParams', function ($scope, $http, $route, OrgsService, $routeParams) {
 
   $scope.orgs;
   $scope.groups;
@@ -42,6 +42,7 @@ app.controller('MainController', ['$scope', '$http', 'OrgsService', '$routeParam
   $scope.addGroup = function (group_name, orgs_id) {
     var newGroup = $scope.group;
     OrgsService.addGroup(newGroup, $routeParams.id).then(function (group) {
+      $route.reload();
       console.log("We have received the ", group);
     })
   }

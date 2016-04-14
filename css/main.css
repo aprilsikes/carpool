@@ -49,6 +49,34 @@ img {
   max-height: 250px;
 }
 
+.avatarS {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.prof {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.well {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.rideR, .seatP, .eventA, .groupA {
+  margin-right: 35px;
+}
+
+.orgS {
+  margin-top: 45px;
+}
+
 .orgInfo {
   color: #17A6B6;
   font-weight: normal;
