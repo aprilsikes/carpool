@@ -1,6 +1,11 @@
-var app = angular.module('poolIt', ['ngRoute', 'ngResource']);
+var app = angular.module('poolIt', ['ngRoute', 'ngResource', 'satellizer']);
 
-app.config(function($routeProvider, $locationProvider, $httpProvider) {
+app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider) {
+
+    $authProvider.facebook({
+      clientId: '1611367362446165'
+    })
+
     $routeProvider
       .when('/', {
         templateUrl: 'partials/splash.html',
