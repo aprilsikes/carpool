@@ -2,9 +2,6 @@ var app = angular.module('poolIt', ['ngRoute', 'ngResource', 'satellizer']);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider) {
 
-    $authProvider.facebook({
-      clientId: '1611367362446165'
-    })
 
     $routeProvider
       .when('/', {
@@ -52,13 +49,13 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
         controller: 'EventsController'
         // access: { requiredLogin: true }
       })
-      .when('/auth/signIn', {
+      .when('/auth/login', {
         templateUrl: 'partials/splash.html',
         controller: 'AuthController',
         access: { requiredLogin: false }
       })
-      .when('/auth/signUp', {
-        templateUrl: 'partials/splash.html',
+      .when('/auth/signup', {
+        templateUrl: 'partials/signup.html',
         controller: 'AuthController',
         access: { requiredLogin: false }
       })
@@ -117,10 +114,37 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
         controller: 'EventsController'
         // access: { requiredLogin: true }
       })
-      // otherwise({
-      //   redirectTo: '/'
-      // })
+
       // $httpProvider.interceptors.push('TokenInterceptor');
 
+      // prod: '1611367362446165'
+      // dev: '1722897481320264'
+
+      $authProvider.facebook({
+        clientId: '1722897481320264'
+      })
+
+      $authProvider.facebook({
+        url: '/auth/facebook',
+        authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
+        redirectUri: window.location.origin + '/',
+        requiredUrlParams: ['display', 'scope'],
+        scope: ['email'],
+        scopeDelimiter: ',',
+        profileFields: ['name', 'id', 'picture.type(large)', 'emails'],
+        display: 'popup',
+        type: '2.0',
+        popupOptions: { width: 580, height: 400 }
+      })
+      // $authProvider.facebook({
+      //   name: 'facebook',
+      //   url: '/auth/facebook',
+      //   authorizationEndpoint: 'https://www.facebook.com/v2.5/dialog/oauth',
+      //   redirectUri: window.location.origin + '/',
+      //   requiredUrlParams: ['display', 'scope'],
+      //   display: 'popup',
+      //   type: '2.0',
+      //   popupOptions: { width: 580, height: 400 }
+      // });
 
 });

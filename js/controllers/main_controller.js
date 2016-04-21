@@ -1,15 +1,15 @@
-app.controller('MainController', ['$scope', '$http', '$route', 'OrgsService', '$routeParams', function ($scope, $http, $route, OrgsService, $routeParams) {
+app.controller('MainController', ['$scope', '$http', '$route', 'OrgsService', '$routeParams', function($scope, $http, $route, OrgsService, $routeParams) {
 
   $scope.orgs;
   $scope.groups;
   $scope.singleOrg;
   $scope.group;
 
-  OrgsService.all().then(function (orgs) {
+  OrgsService.all().then(function(orgs) {
     $scope.orgs = orgs.data;
   })
 
-  OrgsService.oneOrg($routeParams.id).then(function (payload) {
+  OrgsService.oneOrg($routeParams.id).then(function(payload) {
     $scope.singleOrg = payload.data['singleOrg'];
     $scope.groups = payload.data['groups'];
     switch ($scope.singleOrg['category']) {
@@ -35,13 +35,13 @@ app.controller('MainController', ['$scope', '$http', '$route', 'OrgsService', '$
     }
   })
 
-  $scope.toggleForm = function () {
+  $scope.toggleForm = function() {
     $scope.showForm = !$scope.showForm;
   }
 
-  $scope.addGroup = function (group_name, orgs_id) {
+  $scope.addGroup = function(group_name, orgs_id) {
     var newGroup = $scope.group;
-    OrgsService.addGroup(newGroup, $routeParams.id).then(function (group) {
+    OrgsService.addGroup(newGroup, $routeParams.id).then(function(group) {
       $route.reload();
       console.log("We have received the ", group);
     })
